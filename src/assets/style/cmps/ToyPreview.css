@@ -18,3 +18,7 @@
     background-color: rgba(212, 65, 65, 0.616);
     cursor: pointer;
 }
+
+.toy-img {
+    width: 80px;
+}

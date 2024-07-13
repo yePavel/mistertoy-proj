@@ -51,7 +51,7 @@ function _createToys() {
     if (!toys || !toys.length) {
         toys = []
         const names = ['Talking Doll', 'Racing Car', 'Lego Set', 'Stuffed Bear', 'Doll', 'Puzzle Box',
-            'Action Figure', 'Toy Train', 'Building Blocks', 'Board Game']
+            'Action Figure', 'Wheels', 'Art', 'Treasure']
         for (let i = 0; i < 20; i++) {
             const txt = names[utilService.getRandomIntInclusive(0, names.length - 1)]
             toys.push(_createToy(txt,
