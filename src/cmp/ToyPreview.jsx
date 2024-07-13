@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { removeToy } from "../store/actions/toy.actions.js";
+import { removeCarOptimistic } from "../store/actions/toy.actions.js";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
 
 export function ToyPreview({ toy }) {
 
     function onRemoveToy(toyId) {
-        removeToy(toyId)
+        removeCarOptimistic(toyId)
             .then(showSuccessMsg(`${toyId} toy Removed!`))
             .catch(err => showErrorMsg('OOPs cannot remove toy...', err))
     }
