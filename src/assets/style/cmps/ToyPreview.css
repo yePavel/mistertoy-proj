@@ -1,6 +1,20 @@
 .toy-preview {
+    position: relative;
     text-align: center;
     padding: 0.3em;
     display: flex;
     flex-direction: column;
+}
+
+.remove-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.remove-btn:hover {
+    background-color: rgba(212, 65, 65, 0.616);
+    cursor: pointer;
 }

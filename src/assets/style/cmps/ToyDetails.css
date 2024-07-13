@@ -1,0 +1,15 @@
+.toy-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.toy-details h1 {
+    margin-block-start: .5em;
+    margin-block-end: .5em;
+}
+
+.toy-details h4 {
+    margin-block-start: .5em;
+    margin-block-end: .5em;
+}

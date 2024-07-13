@@ -1,5 +1,5 @@
 import { toyService } from "../../services/toy.service.local.js";
-import { ADD_TOY, SET_TOYS, UPDATE_TOY } from "../reducers/toy.reducer.js";
+import { ADD_TOY, REMOVE_TOY, SET_TOYS, UPDATE_TOY } from "../reducers/toy.reducer.js";
 import { store } from "../store.js";
 
 export function loadToys() {
@@ -17,4 +17,9 @@ export function saveToy(toy) {
             console.log('savedToy:', savedToy)
             store.dispatch({ type: type, toy: savedToy })
         })
+}
+
+export function removeToy(toyId) {
+    return toyService.remove(toyId)
+        .then(() => store.dispatch({ type: REMOVE_TOY, toyId }))
 }

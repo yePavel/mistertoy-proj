@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { toyService } from "../services/toy.service.local.js";
 import { saveToy } from "../store/actions/toy.actions.js";
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
 
 export function ToyEdit() {
     const navigate = useNavigate()
@@ -34,8 +35,8 @@ export function ToyEdit() {
         if (!toyToEdit.price || !toyToEdit.name)
             return console.log('Insert Data')
         saveToy(toyToEdit)
-            .then(console.log('toy saved!'))
-            .catch(err => console.log('err:', err))
+            .then(showSuccessMsg('Toy saved!'))
+            .catch(err => showErrorMsg('Error saving toy...', err))
     }
 
     return <section className="edit-toy-container">

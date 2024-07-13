@@ -1,10 +1,8 @@
 .toy-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    gap: 0.6em;
-    margin-block: 0.6em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 150px);
+    gap: 5px;
+
 }
 
 .toy-list li {
@@ -12,5 +10,5 @@
     flex-direction: column;
     justify-content: space-around;
     background-color: var(--clr1bg);
-    padding: 0.65em;
+    padding: .4em;
 }

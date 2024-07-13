@@ -25,11 +25,13 @@ export function ToyDetails() {
 
     return (
         <section className="toy-details">
-            <h1>Name: {toy.name}</h1>
+            <h1>{toy.name}</h1>
             <h4>Price: ${toy.price}</h4>
             <h4>In stoke: {toy.inStock ? 'yes' : 'no'}</h4>
-            <Link to={`/toy/edit/${toy._id}`}>Edit</Link> &nbsp;
-            <Link to={`/toy`}>Back</Link>
+            <div>
+                <Link to={`/toy/edit/${toy._id}`}>Edit</Link> &nbsp;
+                <Link to={`/toy`}>Back</Link>
+            </div>
             {/* <p>
                 <Link to="/car/nJ5L4">Next Car</Link>
             </p> */}

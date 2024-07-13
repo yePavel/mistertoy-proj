@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { UserMsg } from "./UserMsg.jsx";
 
 export function AppHeader() {
     return <header className="app-header">
@@ -10,6 +11,6 @@ export function AppHeader() {
                 <NavLink to="/about" >About</NavLink>
             </nav>
         </section>
-        {/* <UserMsg /> */}
+        <UserMsg />
     </header>
 }

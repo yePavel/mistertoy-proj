@@ -3,6 +3,7 @@ import { toyService } from "../../services/toy.service.local.js"
 export const SET_TOYS = 'SET_TOYS'
 export const UPDATE_TOY = 'UPDATE_TOY'
 export const ADD_TOY = 'ADD_TOY'
+export const REMOVE_TOY = 'REMOVE_TOY'
 
 const initialState = {
     toys: [],
@@ -22,6 +23,9 @@ export function toyReducer(state = initialState, action = {}) {
                 ...state,
                 toys: [...state.toys, action.toy]
             }
+        case REMOVE_TOY:
+            var toys = state.toys.filter(toy => toy._id !== action.toyId)
+            return { ...state, toys }
         default:
             return state
     }
