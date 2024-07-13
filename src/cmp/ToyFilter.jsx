@@ -18,9 +18,8 @@ export function ToyFilter({ filterBy, onSetFilter }) {
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 
-    return <section>
+    return <section className="toy-filter">
         <h2>Toys Filter:</h2>
-
         <form >
             <label htmlFor="name">Name:</label>
             <input type="text"
