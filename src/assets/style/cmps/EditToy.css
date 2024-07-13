@@ -1,0 +1,23 @@
+.edit-toy-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-toy-container form {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+}
+
+.edit-toy-container form label {
+    grid-column: 1/2;
+}
+
+.edit-toy-container form input {
+    grid-column: 2/3;
+}
+
+.edit-toy-container form div {
+    margin-top: 10px;
+    grid-column: 1/-1;
+}
