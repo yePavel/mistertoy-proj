@@ -1,7 +1,8 @@
 .app-header {
-    background-color: var(--clr1);
-    color: var(--clr1bg);
+    background: linear-gradient(#158e7a, #21c7cd);
+    color: #020200;
     padding-block: 1em;
+    margin-block-end: 1em;
 }
 
 .app-nav {
@@ -11,6 +12,6 @@
 
 @media(max-width: 720px) {
     .app-header {
-        color: var(--clr2bg);
+        color: #020200;
     }
 }

@@ -20,10 +20,12 @@ function query(filterBy = {}) {
             if (!filterBy.txt) filterBy.txt = ''
             if (!filterBy.maxPrice) filterBy.maxPrice = Infinity
             const regExp = new RegExp(filterBy.txt, 'i')
-            return toys.filter(toy =>
+            toys = toys.filter(toy =>
                 regExp.test(toy.name) &&
                 toy.price <= filterBy.maxPrice
             )
+            if (filterBy.inStock) toys = toys.filter(toy => toy.inStock === true)
+            return toys
         })
 }
 
@@ -76,11 +78,17 @@ function _createToy(name, price) {
 }
 
 function getEmptyToy(name = '', price = 0) {
-    return { name, price, inStock: true }
+    return { name, price, inStock: false }
 }
 
 function getDefaultFilter() {
-    return { txt: '', maxPrice: '', inStock: false, labels: [], SortBy: '' }
+    return {
+        txt: '',
+        maxPrice: '',
+        inStock: false,
+        labels: [],
+        SortBy: ''
+    }
 }
 
 

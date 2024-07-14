@@ -1,5 +1,6 @@
 .toy-filter {
     background-color: var(--clr2bg);
+    margin: 1em;
     padding: 1em;
 }
 

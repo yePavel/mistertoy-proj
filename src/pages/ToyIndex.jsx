@@ -24,9 +24,8 @@ export function ToyIndex() {
     }
 
     return <div>
-        <h3>Mister Toys!</h3>
         <main>
-            <button><Link to='/toy/edit'>Add Toy</Link></button>
+            <button className="add-toy-btn"><Link to='/toy/edit'>Add Toy</Link></button>
             <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <ToyList toys={toys} />
         </main>

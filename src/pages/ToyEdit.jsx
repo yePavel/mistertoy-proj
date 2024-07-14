@@ -35,7 +35,10 @@ export function ToyEdit() {
         if (!toyToEdit.price || !toyToEdit.name)
             return console.log('Insert Data')
         saveToy(toyToEdit)
-            .then(showSuccessMsg('Toy saved!'))
+            .then(() => {
+                showSuccessMsg('Toy saved!')
+                navigate('/toy')
+            })
             .catch(err => showErrorMsg('Error saving toy...', err))
     }
 

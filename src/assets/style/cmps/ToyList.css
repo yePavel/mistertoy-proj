@@ -1,8 +1,7 @@
 .toy-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 150px);
+    grid-template-columns: repeat(auto-fit, 130px);
     gap: 5px;
-
 }
 
 .toy-list li {
