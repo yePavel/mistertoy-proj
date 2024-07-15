@@ -14,7 +14,7 @@ export function ToyIndex() {
     useEffect(() => {
         loadToys()
             .then(showSuccessMsg('Toys loaded!'))
-            .catch(err => {
+            .catch(() => {
                 showErrorMsg('OOPs try again')
             })
     }, [filterBy])

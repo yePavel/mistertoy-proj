@@ -1,7 +1,9 @@
 import { useRef, useState } from "react"
 import { utilService } from "../services/util.service.js"
 import { useEffectOnUpdate } from "../hooks/useEffectOnUpdate.js"
+import { toyService } from "../services/toy.service.local.js"
 
+const toyLabels = toyService.getLabels()
 
 export function ToyFilter({ filterBy, onSetFilter }) {
 
@@ -15,7 +17,6 @@ export function ToyFilter({ filterBy, onSetFilter }) {
     function handleChange({ target }) {
         const { name: field, type } = target
         let value = target.value
-        console.log('target.checked:', target.checked)
         switch (type) {
             case 'number':
                 value = +value || ''
@@ -23,13 +24,16 @@ export function ToyFilter({ filterBy, onSetFilter }) {
             case 'checkbox':
                 value = target.checked
                 break;
+            case 'select-multiple':
+                value = Array.from(target.selectedOptions, option => option.value || [])
             default:
                 break;
         }
         value = type === 'number' ? +value : value
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
-    console.log('filterByToEdit:', filterByToEdit)
+    const { labels } = filterByToEdit
+
     return <section className="toy-filter">
         <h2>Toys Filter:</h2>
         <form >
@@ -59,9 +63,25 @@ export function ToyFilter({ filterBy, onSetFilter }) {
                     onChange={handleChange}
                 />
             </div>
+            <div>
+                <select
+                    multiple
+                    name="labels"
+                    id="labels"
+                    value={labels || []}
+                    onChange={handleChange}
+                >
+                    <option value="">Labels</option>
+                    {toyLabels.map(label => (
+                        <option value={label} key={label} >
+                            {label}
+                        </option>
+                    ))}
+                </select>
+            </div>
 
         </form>
 
-    </section>
+    </section >
 
 }

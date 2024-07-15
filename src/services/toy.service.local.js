@@ -3,7 +3,9 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 
 const STORAGE_KEY = 'toyDB'
-const myToys = _createToys()
+_createToys()
+
+
 
 export const toyService = {
     query,
@@ -11,21 +13,30 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
-    getDefaultFilter
+    getDefaultFilter,
+    getLabels
 }
 
 function query(filterBy = {}) {
     return storageService.query(STORAGE_KEY)
         .then(toys => {
+            var filteredToys = toys
             if (!filterBy.txt) filterBy.txt = ''
             if (!filterBy.maxPrice) filterBy.maxPrice = Infinity
             const regExp = new RegExp(filterBy.txt, 'i')
-            toys = toys.filter(toy =>
+            filteredToys = filteredToys.filter(toy =>
                 regExp.test(toy.name) &&
                 toy.price <= filterBy.maxPrice
             )
-            if (filterBy.inStock) toys = toys.filter(toy => toy.inStock === true)
-            return toys
+            if (filterBy.inStock)
+                filteredToys = filteredToys.filter(toy => toy.inStock === true)
+            if (filterBy.labels && filterBy.labels.length) {
+                filteredToys = filteredToys.filter(toy =>
+                    filterBy.labels.every(label => toy.labels.includes(label))
+                )
+            }
+            console.log('filteredToys:', filteredToys)
+            return filteredToys
         })
 }
 
@@ -56,8 +67,10 @@ function _createToys() {
             'Action Figure', 'Wheels', 'Art', 'Treasure']
         for (let i = 0; i < 20; i++) {
             const txt = names[utilService.getRandomIntInclusive(0, names.length - 1)]
-            toys.push(_createToy(txt,
-                utilService.getRandomIntInclusive(10, 50)))
+            const currToy = _createToy(txt,
+                utilService.getRandomIntInclusive(10, 50))
+            if (i % 2 === 0) currToy.inStock = true
+            toys.push(currToy)
         }
         utilService.saveToStorage(STORAGE_KEY, toys)
     }
@@ -65,11 +78,19 @@ function _createToys() {
 
 function _createToy(name, price) {
     const todo = getEmptyToy(name, price)
-    const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle',
-        'Outdoor', 'Battery Powered']
     todo.labels = []
+    const toysLabels = [
+        'On wheels',
+        'Box game',
+        'Art',
+        'Baby',
+        'Doll',
+        'Puzzle',
+        'Outdoor',
+        'Battery Powered'
+    ]
     for (let i = 0; i <= 3; i++) {
-        const label = labels[utilService.getRandomIntInclusive(0, labels.length - 1)]
+        const label = toysLabels[utilService.getRandomIntInclusive(0, toysLabels.length - 1)]
         todo.labels.push(label)
     }
     todo._id = utilService.makeId()
@@ -79,6 +100,20 @@ function _createToy(name, price) {
 
 function getEmptyToy(name = '', price = 0) {
     return { name, price, inStock: false }
+}
+
+function getLabels() {
+    const labels = [
+        'On wheels',
+        'Box game',
+        'Art',
+        'Baby',
+        'Doll',
+        'Puzzle',
+        'Outdoor',
+        'Battery Powered'
+    ]
+    return labels
 }
 
 function getDefaultFilter() {
