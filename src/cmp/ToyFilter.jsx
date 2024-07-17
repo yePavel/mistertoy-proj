@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import { utilService } from "../services/util.service.js"
 import { useEffectOnUpdate } from "../hooks/useEffectOnUpdate.js"
-import { toyService } from "../services/toy.service.local.js"
+import { toyService } from "../services/toy.service.js"
 
 const toyLabels = toyService.getLabels()
 
@@ -17,7 +17,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
     function handleChange({ target }) {
         const { name: field, type } = target
         let value = target.value
-        console.log('value:', value)
+
         switch (type) {
             case 'number':
                 value = +value || ''

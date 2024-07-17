@@ -9,7 +9,7 @@ export function ToyPreview({ toy }) {
             .then(showSuccessMsg(`${toyId} toy Removed!`))
             .catch(err => showErrorMsg('OOPs cannot remove toy...', err))
     }
-
+    console.log('toy:', toy)
     return (
         <article>
             <h4>{toy.name}💫</h4>
