@@ -35,7 +35,17 @@ function query(filterBy = {}) {
                     filterBy.labels.every(label => toy.labels.includes(label))
                 )
             }
-            console.log('filteredToys:', filteredToys)
+            if (filterBy.sortBy === 'name') {
+                filteredToys.sort((t1, t2) => {
+                    return t1.name.localeCompare(t2.name) * filterBy.sortDir
+                })
+            }
+            else if (filterBy.sortBy === 'price' ||
+                filterBy.sortBy === 'createdAt') {
+                filteredToys.sort((t1, t2) => {
+                    return (t1.price - t2.price) * filterBy.sortDir
+                })
+            }
             return filteredToys
         })
 }
@@ -122,7 +132,8 @@ function getDefaultFilter() {
         maxPrice: '',
         inStock: false,
         labels: [],
-        SortBy: ''
+        sortBy: '',
+        sortDir: 1
     }
 }
 

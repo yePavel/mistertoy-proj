@@ -17,6 +17,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
     function handleChange({ target }) {
         const { name: field, type } = target
         let value = target.value
+        console.log('value:', value)
         switch (type) {
             case 'number':
                 value = +value || ''
@@ -31,6 +32,15 @@ export function ToyFilter({ filterBy, onSetFilter }) {
         }
         value = type === 'number' ? +value : value
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
+    }
+
+    function handleSort({ target }) {
+        const field = target.name
+        const value = target.type === 'number' ? +target.value : target.value
+        setFilterByToEdit(prevSort => ({
+            ...prevSort,
+            [field]: field === 'sortDir' ? -prevSort.sortDir : value,
+        }))
     }
     const { labels } = filterByToEdit
 
@@ -79,7 +89,24 @@ export function ToyFilter({ filterBy, onSetFilter }) {
                     ))}
                 </select>
             </div>
-
+            <div>
+                <select name="sortBy" id="sort-by"
+                    onChange={handleSort}>
+                    <option value="">Sort By:</option>
+                    <option value="name">Name</option>
+                    <option value="price">Price</option>
+                    <option value="createdAt">Created at</option>
+                </select>
+                <label>
+                    <input
+                        type="checkbox"
+                        name="sortDir"
+                        checked={filterByToEdit.sortDir < 0}
+                        onChange={handleSort}
+                    />
+                    Descending
+                </label>
+            </div>
         </form>
 
     </section >

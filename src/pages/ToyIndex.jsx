@@ -13,7 +13,7 @@ export function ToyIndex() {
 
     useEffect(() => {
         loadToys()
-            .then(showSuccessMsg('Toys loaded!'))
+            .then(console.log('Toys loaded!'))
             .catch(() => {
                 showErrorMsg('OOPs try again')
             })
