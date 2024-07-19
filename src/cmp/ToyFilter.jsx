@@ -73,7 +73,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
                     onChange={handleChange}
                 />
             </div>
-            <div>
+            {toyLabels && <div>
                 <select
                     multiple
                     name="labels"
@@ -88,7 +88,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
                         </option>
                     ))}
                 </select>
-            </div>
+            </div>}
             <div>
                 <select name="sortBy" id="sort-by"
                     onChange={handleSort}>

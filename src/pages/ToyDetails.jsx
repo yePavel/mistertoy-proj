@@ -28,7 +28,7 @@ export function ToyDetails() {
             <h1>{toy.name}</h1>
             <h4>Price: ${toy.price}</h4>
             <h4>In stoke: {toy.inStock ? 'yes' : 'no'}</h4>
-            <div>
+            <div className="toy-nav">
                 <Link to={`/toy/edit/${toy._id}`}>Edit</Link> &nbsp;
                 <Link to={`/toy`}>Back</Link>
             </div>
