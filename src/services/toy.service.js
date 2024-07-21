@@ -1,3 +1,4 @@
+import { object } from "yup"
 import { httpService } from "./http.service.js"
 const BASE_URL = 'toy/'
 
@@ -8,11 +9,11 @@ export const toyService = {
     remove,
     getDefaultFilter,
     getLabels,
-    getEmptyToy
+    getEmptyToy,
+    getLabelCounts
 }
 
 function query(filterBy = {}) {
-    console.log('filterBy:', filterBy)
     return httpService.get(BASE_URL, { filterBy })
 }
 
@@ -52,6 +53,29 @@ function getLabels() {
         'Battery Powered'
     ]
     return labels
+}
+
+function getLabelCounts() {
+    return query().then(toys => {
+        const labelCounts = {}
+
+        toys.forEach(toy => {
+            toy.labels.forEach(label => {
+                if (labelCounts[label])
+                    labelCounts[label]++
+                else labelCounts[label] = 1
+            });
+        })
+
+        const labelsArray = Object.entries(labelCounts).map(
+            ([label, count]) => ({
+                label,
+                count
+            })
+        )
+        console.log('labelsArray:', labelsArray)
+        return Promise.resolve(labelsArray)
+    })
 }
 
 function getEmptyToy(name = '', price = 0) {
