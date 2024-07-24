@@ -1,0 +1,12 @@
+.main-toys-container {
+    display: grid;
+    grid-template-columns: $layoutPadding 1fr $layoutPadding;
+    margin-top: 30px;
+
+    >* {
+        grid-column: 2 / 3;
+    }
+
+
+
+}

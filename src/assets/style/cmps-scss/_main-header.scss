@@ -1,0 +1,32 @@
+header.app-header {
+    font-weight: 600;
+
+
+    .header-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+
+        .app-nav {
+            grid-column: 2/-1;
+            display: flex;
+            justify-content: end;
+            margin-inline-end: 20px;
+            font-size: rem(20px);
+
+            a {
+                padding: rem(20px) rem(20px);
+
+                &:hover {
+                    color: $clr3;
+                }
+            }
+        }
+    }
+
+    .toy-logo {
+        z-index: 10;
+        width: 15rem;
+    }
+
+
+}

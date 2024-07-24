@@ -4,7 +4,7 @@ import { UserMsg } from "./UserMsg.jsx";
 export function AppHeader() {
     return <header className="app-header">
         <section className="header-container">
-            <h1>Mister Toy!</h1>
+            <img className="toy-logo" src="/src/assets/imgs/toy-logo.png" alt="" />
             <nav className="app-nav">
                 <NavLink to="/" >Home</NavLink>
                 <NavLink to="/toy" >Toys</NavLink>

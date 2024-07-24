@@ -1,0 +1,13 @@
+@mixin a-direct($color: black) {
+    position: absolute;
+    padding: 10px;
+    border-radius: 50% 50%;
+    border: solid 2px $color;
+    color: $color;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $color;
+        color: white;
+    }
+}

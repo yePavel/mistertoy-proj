@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: edu, sans-serif;
+    color: $clr1;
+    line-height: 1.8;
+    line-height: lh(26px);
+
+    @media (max-width: 1300px) {
+        font-size: 13px;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: lh(40px, 29px);
+}
+
+h1 {
+    font-size: rem(50px);
+}
+
+a {
+    color: $clr1;
+    text-decoration: none;
+
+    &.active {
+        color: $clr2;
+    }
+}
+
+body {
+    margin: 0;
+}

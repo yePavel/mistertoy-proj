@@ -1,0 +1,15 @@
+// SETUP
+
+@import './setup-scss/functions';
+@import './setup-scss/mixins';
+@import './setup-scss/variables';
+
+// BASICS
+@import './base-scss/base';
+@import './base-scss/helpers';
+
+
+// COMPONENTS
+@import './cmps-scss/main-header';
+@import './cmps-scss/home-page';
+@import './cmps-scss/mainIndex'
