@@ -1,11 +1,14 @@
 .toy-filter {
     padding: 10px;
+
     // background: $clrFilterBg;
+    h2 {
+        text-decoration: underline;
+    }
 
     form {
         display: flex;
         padding: 15px;
-        border-radius: 50px;
         background: $clrFilterBg;
         justify-content: space-evenly;
         align-content: center;
@@ -35,6 +38,7 @@
                 position: absolute;
                 right: 18px;
                 top: 3px;
+
             }
 
             input {
@@ -47,6 +51,7 @@
             }
 
             &:hover {
+
                 background-color: $clr3;
                 color: white;
             }
@@ -76,6 +81,7 @@
             }
 
             &:hover {
+
                 background-color: $clr3;
                 color: white;
             }
@@ -90,7 +96,6 @@
         }
 
         .sort-by-labels {
-            // overflow: hidden;
             height: 20px;
             transition: .8s;
 

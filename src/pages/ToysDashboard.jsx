@@ -15,10 +15,7 @@ export function ToysDashBoard() {
             .then(setLabels)
     }, [])
 
-    function getNumOfItems() {
-        return [10, 11, 12, 13, 1, 2]
-    }
-
+    console.log('labels:', labels)
     const data = {
         labels: labels.map(currLabel => currLabel.label),
         datasets: [

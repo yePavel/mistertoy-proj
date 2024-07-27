@@ -1,0 +1,36 @@
+.about-container {
+    display: grid;
+    grid-template-columns: $layoutPadding minmax(300px, 1fr) minmax(300px, 1fr) $layoutPadding;
+    grid-template-rows: 1fr .5fr;
+    margin: 50px;
+    gap: 20px;
+
+    >* {
+        grid-column: 2 / 3;
+    }
+
+    .blue-about {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-column: 2/3;
+        grid-row: 1/2;
+        font-size: 3rem;
+        padding: 60px;
+        background-color: rgb(71 165 222);
+        color: white;
+        font-weight: 900;
+    }
+
+    img {
+        grid-column: 3/4;
+        grid-row: 1/2;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    p {
+        grid-column: 2/4;
+        grid-row: 2/3;
+    }
+}

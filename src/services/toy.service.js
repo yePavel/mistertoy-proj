@@ -58,8 +58,8 @@ function getLabels() {
 function getLabelCounts() {
     return query().then(toys => {
         const labelCounts = {}
-
         toys.forEach(toy => {
+            console.log('toy:', toy)
             toy.labels.forEach(label => {
                 if (labelCounts[label])
                     labelCounts[label]++
