@@ -33,9 +33,19 @@ a {
 
     &.active {
         color: $clr2;
+        text-decoration: underline;
     }
 }
 
 body {
+    font-family: lato-regular;
     margin: 0;
+}
+
+.green-mark {
+    color: green;
+}
+
+.red-mark {
+    color: red;
 }

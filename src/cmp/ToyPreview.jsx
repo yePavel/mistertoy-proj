@@ -18,7 +18,7 @@ export function ToyPreview({ toy }) {
                 <span className='green-mark'>IN STOCK!</span> :
                 <span className='red-mark'>SOLD OUT</span>
             }
-            <div>
+            <div className="toy-prev-nav">
                 <Link to={`/toy/edit/${toy._id}`}>Edit</Link> &nbsp; | &nbsp;
                 <Link to={`/toy/${toy._id}`}>Details</Link>
             </div>

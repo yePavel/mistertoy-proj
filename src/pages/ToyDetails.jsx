@@ -32,9 +32,6 @@ export function ToyDetails() {
                 <Link to={`/toy/edit/${toy._id}`}>Edit</Link> &nbsp;
                 <Link to={`/toy`}>Back</Link>
             </div>
-            {/* <p>
-                <Link to="/car/nJ5L4">Next Car</Link>
-            </p> */}
         </section>
     )
 }

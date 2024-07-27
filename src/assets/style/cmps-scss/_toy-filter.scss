@@ -1,0 +1,102 @@
+.toy-filter {
+    padding: 10px;
+    // background: $clrFilterBg;
+
+    form {
+        display: flex;
+        padding: 15px;
+        border-radius: 50px;
+        background: $clrFilterBg;
+        justify-content: space-evenly;
+        align-content: center;
+        gap: 20px;
+
+        input {
+            &:nth-child(1) {
+                height: 30px;
+                border-radius: 50px;
+            }
+
+            &:nth-child(2) {
+                height: 30px;
+                border-radius: 50px;
+            }
+
+        }
+
+        .in-stock {
+            position: relative;
+            border: 1px solid;
+            width: 80px;
+            height: 30px;
+            border-radius: 50px;
+
+            label {
+                position: absolute;
+                right: 18px;
+                top: 3px;
+            }
+
+            input {
+                display: none;
+            }
+
+            &.active {
+                transition: .6s;
+                background-color: green;
+            }
+
+            &:hover {
+                background-color: $clr3;
+                color: white;
+            }
+
+        }
+
+        .desc-dir {
+            position: relative;
+            border: 1px solid;
+            width: 80px;
+            height: 30px;
+            border-radius: 50px;
+
+            input {
+                display: none;
+            }
+
+            label {
+                position: absolute;
+                right: 9px;
+                top: 3px;
+            }
+
+            &.active {
+                transition: .6s;
+                background-color: green;
+            }
+
+            &:hover {
+                background-color: $clr3;
+                color: white;
+            }
+        }
+
+        .sort-by-toys {
+            position: relative;
+            border: 1px solid;
+            width: 80px;
+            height: 30px;
+            border-radius: 50px;
+        }
+
+        .sort-by-labels {
+            // overflow: hidden;
+            height: 20px;
+            transition: .8s;
+
+            &:hover {
+                height: 70px;
+            }
+        }
+    }
+}

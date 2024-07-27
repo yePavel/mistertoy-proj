@@ -45,27 +45,25 @@ export function ToyFilter({ filterBy, onSetFilter }) {
     const { labels } = filterByToEdit
 
     return <section className="toy-filter">
-        <h2>Toys Filter:</h2>
+        <h2>Custom Filters</h2>
         <form >
-            <label htmlFor="name">Name:</label>
             <input type="text"
                 id="name"
                 name="txt"
-                placeholder="By Name..."
+                placeholder="Search By Name.."
                 value={filterByToEdit.name}
                 onChange={handleChange}
             />
 
-            <label htmlFor="maxPrice">Max price:</label>
             <input type="number"
                 id="maxPrice"
                 name="maxPrice"
-                placeholder="By max price"
+                placeholder="Search By max price.."
                 value={filterByToEdit.maxPrice || ''}
                 onChange={handleChange}
             />
-            <div>
-                <label htmlFor="in-stock">In stock: </label>
+            <div className={`in-stock ${filterByToEdit.inStock ? 'active' : ''}`}>
+                <label htmlFor="in-stock">In stock </label>
                 <input type="checkbox"
                     id="in-stock"
                     name="inStock"
@@ -73,8 +71,27 @@ export function ToyFilter({ filterBy, onSetFilter }) {
                     onChange={handleChange}
                 />
             </div>
-            {toyLabels && <div>
-                <select
+            <div>
+                <select name="sortBy" id="sort-by" className="sort-by-toys"
+                    onChange={handleSort}>
+                    <option value="">Sort By:</option>
+                    <option value="name">Name</option>
+                    <option value="price">Price</option>
+                    <option value="createdAt">Created at</option>
+                </select>
+            </div>
+            <div className={`desc-dir ${filterByToEdit.sortDir > 0 ? '' : 'active'}`}>
+                <label htmlFor="desc-dir">{filterByToEdit.sortDir > 0 ? 'Descending' : 'Acceding'}</label>
+                <input
+                    id="desc-dir"
+                    type="checkbox"
+                    name="sortDir"
+                    checked={filterByToEdit.sortDir < 0}
+                    onChange={handleSort}
+                />
+            </div>
+            {toyLabels && <div >
+                <select className="sort-by-labels"
                     multiple
                     name="labels"
                     id="labels"
@@ -89,24 +106,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
                     ))}
                 </select>
             </div>}
-            <div>
-                <select name="sortBy" id="sort-by"
-                    onChange={handleSort}>
-                    <option value="">Sort By:</option>
-                    <option value="name">Name</option>
-                    <option value="price">Price</option>
-                    <option value="createdAt">Created at</option>
-                </select>
-                <label>
-                    <input
-                        type="checkbox"
-                        name="sortDir"
-                        checked={filterByToEdit.sortDir < 0}
-                        onChange={handleSort}
-                    />
-                    Descending
-                </label>
-            </div>
+
         </form>
 
     </section >

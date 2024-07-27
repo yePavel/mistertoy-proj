@@ -25,8 +25,8 @@ export function ToyIndex() {
 
     return <div>
         <main className="main-toys-container">
-            <button className="add-toy-btn"><Link to='/toy/edit'>Add Toy</Link></button>
             <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+            <button className="add-toy-btn"><Link to='/toy/edit'>Add Toy</Link></button>
             <ToyList toys={toys} />
         </main>
     </div>
