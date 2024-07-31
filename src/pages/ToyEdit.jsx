@@ -42,12 +42,6 @@ export function ToyEdit() {
             })
     }
 
-    // function handleChange({ target }) {
-    //     let { value, name: field, type } = target
-    //     value = type === 'number' ? +value : value
-    //     setToyToEdit(prevToy => ({ ...prevToy, [field]: value }))
-    // }
-
     function onSaveToy(values, { setSubmitting }) {
         console.log('values:', values)
         console.log('setSubmitting:', setSubmitting)
@@ -59,17 +53,6 @@ export function ToyEdit() {
             .catch(err => showErrorMsg('Error saving toy...', err))
     }
 
-    // function handleLabelChange({ target }) {
-    //     const value = target.value
-    //     setToyToEdit(prevToy => {
-    //         const newLabels = prevToy.labels.includes(value)
-    //             ? prevToy.labels.filter(label => label !== value)
-    //             : [...prevToy.labels, value]
-    //         return { ...prevToy, labels: newLabels }
-    //     })
-    // }
-
-    // const { labels: selectedLabels } = toyToEdit
     console.log('toyToEdit:', toyToEdit)
     return <section className="edit-toy-container">
         <h2>{toyToEdit._id ? 'Edit' : 'Add'} Toy</h2>
@@ -138,46 +121,6 @@ export function ToyEdit() {
             )}
 
         </Formik>
-
-        {/* <form onSubmit={onSaveToy} >
-            <label htmlFor="name">Name : </label>
-            <input type="text"
-                name="name"
-                id="name"
-                placeholder="Enter toy name..."
-                value={toyToEdit.name}
-                onChange={handleChange}
-            />
-            <label htmlFor="price">Price : </label>
-            <input type="number"
-                name="price"
-                id="price"
-                placeholder="Enter price"
-                value={toyToEdit.price}
-                onChange={handleChange}
-            />
-
-            <div className="labels-container">
-                {labels.map(label => (
-                    <div key={label}>
-                        <input
-                            type="checkbox"
-                            id={label}
-                            value={label}
-                            checked={selectedLabels.includes(label)}
-                            onChange={handleLabelChange}
-                        />
-                        <label htmlFor={label}>{label}</label>
-                    </div>
-                ))}
-            </div>
-
-            <div>
-                <button>{toyToEdit._id ? 'Save' : 'Add'}</button>
-                <Link to="/toy">Back</Link>
-            </div>
-        </form> */}
-
     </section>
 
 }

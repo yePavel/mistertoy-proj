@@ -73,7 +73,6 @@ function getLabelCounts() {
                 count
             })
         )
-        console.log('labelsArray:', labelsArray)
         return Promise.resolve(labelsArray)
     })
 }

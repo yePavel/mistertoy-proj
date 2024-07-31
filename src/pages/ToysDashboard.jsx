@@ -17,11 +17,11 @@ export function ToysDashBoard() {
 
     console.log('labels:', labels)
     const data = {
-        labels: labels.map(currLabel => currLabel.label),
+        labels: labels?.map(currLabel => currLabel.label),
         datasets: [
             {
                 label: 'Number of items',
-                data: labels.map(currLabel => currLabel.count),
+                data: labels?.map(currLabel => currLabel.count),
                 backgroundColor: [
                     'rgba(90, 90, 90, 0.8)',
                     'rgba(212, 0, 0, 0.8)',
@@ -44,12 +44,7 @@ export function ToysDashBoard() {
         ],
     };
 
-    return <section style={{
-        margin: 'auto',
-        position: 'relative',
-        height: '70vh',
-        width: '80vw',
-    }}>
+    return <section className='dashboard-container'>
         <Doughnut data={data} />
     </section>
 

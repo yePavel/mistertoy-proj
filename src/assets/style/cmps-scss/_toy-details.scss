@@ -1,0 +1,31 @@
+.toy-details {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    width: 60vw;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin: 20px auto;
+    box-shadow: rgba(3, 102, 214, 0.3) -2px 2px 20px 3px;
+
+    .details-price {
+        color: grey;
+    }
+
+    a.edit-details-btn {
+        @include a-direct($color: rgb(0, 30, 114));
+        bottom: 0;
+        left: 40%;
+        border-radius: 10px;
+        padding: 3px;
+    }
+
+    a.edit-back-btn {
+        @include a-direct($color: rgb(0, 30, 114));
+        bottom: 0;
+        left: 50%;
+        border-radius: 10px;
+        padding: 3px;
+    }
+}

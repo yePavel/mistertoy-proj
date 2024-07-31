@@ -22,15 +22,26 @@ export function ToyDetails() {
     }
 
     if (!toy) return <div>Loading...</div>
-
+    console.log('toy:', toy)
     return (
         <section className="toy-details">
             <h1>{toy.name}</h1>
-            <h4>Price: ${toy.price}</h4>
-            <h4>In stoke: {toy.inStock ? 'yes' : 'no'}</h4>
+            <img className="toy-img" src={`./src/assets/imgs/${toy.name}.png`} alt="" />
+            <h3 className="details-price">Price: ${toy.price}</h3>
+            <h4 >
+                In stoke:
+                <span className={toy.inStock ? 'green-mark' : 'red-mark'}>
+                    {toy.inStock ? ' yes' : ' no'}</span>
+            </h4>
             <div className="toy-nav">
-                <Link to={`/toy/edit/${toy._id}`}>Edit</Link> &nbsp;
-                <Link to={`/toy`}>Back</Link>
+                <Link to={`/toy/edit/${toy._id}`}
+                    className="edit-details-btn"
+                >Edit
+                </Link> &nbsp;
+                <Link to={`/toy`}
+                    className="edit-back-btn"
+                >Back
+                </Link>
             </div>
         </section>
     )
