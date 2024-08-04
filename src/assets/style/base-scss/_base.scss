@@ -32,8 +32,10 @@ a {
     text-decoration: none;
 
     &.active {
-        color: $clr2;
+        color: #5034FF;
         text-decoration: underline;
+        background-color: #F0F3FF;
+        border-radius: 20px;
     }
 }
 

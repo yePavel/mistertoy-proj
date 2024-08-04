@@ -25,7 +25,7 @@ export function AppHeader() {
                         {`Welcome ${user.username} `}
                         <button onClick={userLogOut}>Log out</button>
                     </div> :
-                    <div>
+                    <div className="user-container">
                         <Link to='/login'>Log in</Link>
                         <Link to='/'>Sign Up</Link>
                     </div>
