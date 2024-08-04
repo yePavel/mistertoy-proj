@@ -1,7 +1,7 @@
 @mixin a-direct($color: black) {
     position: absolute;
     padding: 10px;
-    border-radius: 50% 50%;
+    border-radius: 100px;
     border: solid 2px $color;
     color: $color;
 

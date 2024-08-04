@@ -18,7 +18,8 @@ header.app-header {
                 padding: rem(20px) rem(20px);
 
                 &:hover {
-                    color: $clr3;
+                    color: #5034FF;
+                    background-color: #F0F3FF;
                 }
             }
 
@@ -30,6 +31,19 @@ header.app-header {
                 .user-img {
                     width: 3rem;
                     margin: auto;
+                }
+
+                a {
+                    padding: 10px;
+                    border-radius: 100px;
+                    border: solid 2px #6161FF;
+                    color: #6161FF;
+                    transition: 0.4s;
+
+                    &:hover {
+                        background-color: #6161FF;
+                        color: whitesmoke;
+                    }
                 }
             }
 
