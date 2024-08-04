@@ -21,6 +21,18 @@ header.app-header {
                     color: $clr3;
                 }
             }
+
+            .user-container {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                .user-img {
+                    width: 3rem;
+                    margin: auto;
+                }
+            }
+
         }
     }
 
