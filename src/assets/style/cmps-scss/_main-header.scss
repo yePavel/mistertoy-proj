@@ -18,9 +18,7 @@ header.app-header {
                 padding: rem(20px) rem(20px);
 
                 &:hover {
-                    color: #5034FF;
-                    background-color: #F0F3FF;
-                    border-radius: 20px;
+                    color: $clr3;
                 }
             }
 
