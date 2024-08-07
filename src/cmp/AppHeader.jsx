@@ -5,7 +5,6 @@ import { logOut } from "../store/actions/user.actions.js";
 
 export function AppHeader() {
     const user = useSelector(state => state.userModule.loggedinUser)
-    console.log('user:', user)
 
     function userLogOut() {
         logOut()

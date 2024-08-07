@@ -14,18 +14,20 @@
     }
 
     a.edit-details-btn {
-        @include a-direct($color: rgb(0, 30, 114));
         bottom: 0;
         left: 40%;
         border-radius: 10px;
         padding: 3px;
+        @include a-direct($color: rgb(0, 30, 114));
+
     }
 
     a.edit-back-btn {
-        @include a-direct($color: rgb(0, 30, 114));
         bottom: 0;
         left: 50%;
         border-radius: 10px;
         padding: 3px;
+        @include a-direct($color: rgb(0, 30, 114));
+
     }
 }

@@ -43,8 +43,6 @@ export function ToyEdit() {
     }
 
     function onSaveToy(values, { setSubmitting }) {
-        console.log('values:', values)
-        console.log('setSubmitting:', setSubmitting)
         saveToy(values)
             .then(() => {
                 showSuccessMsg('Toy saved!')
