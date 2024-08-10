@@ -21,9 +21,7 @@ export function AppHeader() {
                 <NavLink to="/about" >About</NavLink>
                 {user ?
                     <div className="user-container">
-                        <NavLink to="/userDetails" className={"user-img-link"}>
-                            <img className="user-img" src="/src/assets/imgs/user-img.png" alt="" />
-                        </NavLink>
+                        <img className="user-img" src="/src/assets/imgs/user-img.png" alt="" />
                         {`Welcome ${user.username} `}
                         <button onClick={userLogOut}>Log out</button>
                     </div> :
