@@ -13,7 +13,7 @@ function query(filterBy) {
 }
 
 async function remove(reviewId) {
-    await httpService.delete(BASE_URL)
+    await httpService.delete(BASE_URL + reviewId)
 }
 
 async function add({ txt, aboutUserId }) {

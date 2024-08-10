@@ -9,7 +9,7 @@ header.app-header {
         .app-nav {
             grid-column: 2/-1;
             display: flex;
-            align-content: center;
+            align-items: center;
             justify-content: space-around;
             margin-inline-end: 20px;
             font-size: rem(20px);
@@ -32,7 +32,7 @@ header.app-header {
                     margin: auto;
                 }
 
-                a {
+                a:not(.user-img-link) {
                     padding: 10px;
                     border-radius: 100px;
                     border: solid 2px #6161FF;

@@ -1,5 +1,5 @@
 import { reviewService } from '../../services/review'
-import { SET_REVIEWS } from '../reducers/review.reducer.js'
+import { REMOVE_REVIEW, SET_REVIEWS } from '../reducers/review.reducer.js'
 import { store } from '../../store/store.js'
 
 export async function loadReviews() {
@@ -10,5 +10,19 @@ export async function loadReviews() {
         console.log('ReviewActions: err in loadReviews', err)
         throw err
     }
+}
+
+export function removeCarOptimistic(reviewId) {
+    store.dispatch({ type: REMOVE_REVIEW, reviewId })
+
+    return reviewService.remove(reviewId)
+        .then(() =>
+            showSuccessMsg('Removed Toy!')
+        )
+        .catch(err => {
+            store.dispatch({ type: REMOVE_REVIEW })
+            console.log('Cannot remove review', err)
+            throw err
+        })
 }
 
