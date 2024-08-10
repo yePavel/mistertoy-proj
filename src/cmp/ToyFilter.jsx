@@ -1,7 +1,8 @@
 import { useRef, useState } from "react"
 import { utilService } from "../services/util.service.js"
 import { useEffectOnUpdate } from "../hooks/useEffectOnUpdate.js"
-import { toyService } from "../services/toy.service.js"
+import { toyService } from "../services/toy"
+
 
 const toyLabels = toyService.getLabels()
 
@@ -98,7 +99,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
                     value={labels || []}
                     onChange={handleChange}
                 >
-                    <option value="">Labels</option>
+                    <option value="">--Labels--</option>
                     {toyLabels.map(label => (
                         <option value={label} key={label} >
                             {label}

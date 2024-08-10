@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { toyService } from "../services/toy.service.js";
+import { toyService } from "../services/toy"
 import { saveToy } from "../store/actions/toy.actions.js";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
 
@@ -51,7 +51,6 @@ export function ToyEdit() {
             .catch(err => showErrorMsg('Error saving toy...', err))
     }
 
-    console.log('toyToEdit:', toyToEdit)
     return <section className="edit-toy-container">
         <h2>{toyToEdit._id ? 'Edit' : 'Add'} Toy</h2>
 

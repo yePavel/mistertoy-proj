@@ -47,14 +47,14 @@
         }
 
         a.shop-now {
-            top: 45%;
-            left: 8%;
+            top: rem(300px);
+            left: rem(100px);
             @include a-direct($color: orange)
         }
 
         a.our-story {
-            top: 35%;
-            right: 1%;
+            top: rem(180px);
+            right: rem(20px);
             @include a-direct($color: rgb(0, 87, 187))
         }
 

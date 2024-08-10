@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { toyService } from "../services/toy.service.js";
+import { toyService } from "../services/toy"
 
 export function ToyDetails() {
     const [toy, setToy] = useState(null)
@@ -22,7 +22,7 @@ export function ToyDetails() {
     }
 
     if (!toy) return <div>Loading...</div>
-    console.log('toy:', toy)
+
     return (
         <section className="toy-details">
             <h1>{toy.name}</h1>

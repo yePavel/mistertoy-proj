@@ -1,10 +1,9 @@
 
-import { storageService } from './async-storage.service.js'
-import { utilService } from './util.service.js'
+import { storageService } from '../async-storage.service.js'
+import { utilService } from '../util.service.js'
 
 const STORAGE_KEY = 'toyDB'
 _createToys()
-
 
 
 export const toyService = {
@@ -12,9 +11,8 @@ export const toyService = {
     getById,
     save,
     remove,
-    getEmptyToy,
-    getDefaultFilter,
-    getLabels
+    getLabels,
+    getLabelCounts
 }
 
 function query(filterBy = {}) {
@@ -63,10 +61,30 @@ function save(toy) {
     if (toy._id) {
         return storageService.put(STORAGE_KEY, toy)
     } else {
-        // when switching to backend - remove the next line
-        // toy.owner = userService.getLoggedinUser()
+
         return storageService.post(STORAGE_KEY, toy)
     }
+}
+
+function getLabelCounts() {
+    return query().then(toys => {
+        const labelCounts = {}
+        toys.forEach(toy => {
+            toy.labels.forEach(label => {
+                if (labelCounts[label])
+                    labelCounts[label]++
+                else labelCounts[label] = 1
+            });
+        })
+
+        const labelsArray = Object.entries(labelCounts).map(
+            ([label, count]) => ({
+                label,
+                count
+            })
+        )
+        return Promise.resolve(labelsArray)
+    })
 }
 
 function _createToys() {
@@ -109,7 +127,7 @@ function _createToy(name, price) {
 }
 
 function getEmptyToy(name = '', price = 0) {
-    return { name, price, inStock: false }
+    return { name, price, inStock: true, labels: [] }
 }
 
 function getLabels() {
@@ -126,16 +144,7 @@ function getLabels() {
     return labels
 }
 
-function getDefaultFilter() {
-    return {
-        txt: '',
-        maxPrice: '',
-        inStock: false,
-        labels: [],
-        sortBy: '',
-        sortDir: 1
-    }
-}
+
 
 
 

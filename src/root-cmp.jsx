@@ -12,6 +12,8 @@ import { ToyEdit } from "./pages/ToyEdit.jsx";
 // import './assets/style/main.css'
 import { ToysDashBoard } from "./pages/ToysDashboard.jsx";
 import { UserLogin } from "./pages/UserLogin.jsx";
+import { UserDetails } from "./pages/UserDetails.jsx";
+import { ReviewIndex } from "./pages/ReviewIndex.jsx";
 
 export function App() {
 
@@ -29,6 +31,8 @@ export function App() {
                             <Route element={<ToyEdit />} path="/toy/edit/" />
                             <Route element={<ToyEdit />} path="/toy/edit/:toyId" />
                             <Route element={<ToysDashBoard />} path="/toy/dashboard" />
+                            <Route element={<UserDetails />} path="/userDetails" />
+                            <Route element={<ReviewIndex />} path="/review" />
                             <Route element={<UserLogin />} path="/login" />
                             {/* <Route element={<ToysDashBoard />} path="/signup" /> */}
                         </Routes>
