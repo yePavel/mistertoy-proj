@@ -1,0 +1,9 @@
+.review-index {
+    display: grid;
+    grid-template-columns: $layoutPadding 1fr $layoutPadding;
+
+    >* {
+        grid-column: 2 / 3;
+    }
+
+}

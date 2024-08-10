@@ -2,9 +2,13 @@ import { reviewService } from '../../services/review'
 import { REMOVE_REVIEW, SET_REVIEWS } from '../reducers/review.reducer.js'
 import { store } from '../../store/store.js'
 
-export async function loadReviews() {
+export async function loadReviews(userId) {
+    const filterBy = {
+        byUserId: userId || '',
+        // toyId: toyId || ''
+    }
     try {
-        const reviews = await reviewService.query()
+        const reviews = await reviewService.query(filterBy)
         store.dispatch({ type: SET_REVIEWS, reviews })
     } catch (err) {
         console.log('ReviewActions: err in loadReviews', err)

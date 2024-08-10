@@ -8,8 +8,8 @@ export const reviewService = {
 }
 
 function query(filterBy) {
-    // var queryStr = filterBy ? `review?byUserId=${filterBy.byUserId}` : ''
-    return httpService.get(BASE_URL)
+    var queryStr = filterBy ? `${BASE_URL}?byUserId=${filterBy.byUserId}` : ''
+    return httpService.get(queryStr)
 }
 
 async function remove(reviewId) {
