@@ -17,10 +17,13 @@ export function AppHeader() {
                 <NavLink to="/" >Home</NavLink>
                 <NavLink to="/toy" >Toys</NavLink>
                 <NavLink to="/toy/dashboard" >Dashboard</NavLink>
+                <NavLink to="/review" >Reviews</NavLink>
                 <NavLink to="/about" >About</NavLink>
                 {user ?
                     <div className="user-container">
-                        <img className="user-img" src="/src/assets/imgs/user-img.png" alt="" />
+                        <NavLink to="/userDetails" >
+                            <img className="user-img" src="/src/assets/imgs/user-img.png" alt="" />
+                        </NavLink>
                         {`Welcome ${user.username} `}
                         <button onClick={userLogOut}>Log out</button>
                     </div> :

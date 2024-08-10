@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
-import { toyService } from '../services/toy.service';
+import { toyService } from '../services/toy';
+
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -15,7 +16,6 @@ export function ToysDashBoard() {
             .then(setLabels)
     }, [])
 
-    console.log('labels:', labels)
     const data = {
         labels: labels?.map(currLabel => currLabel.label),
         datasets: [

@@ -5,7 +5,6 @@ import { store } from "../store.js";
 
 export async function login(credentials) {
     const loggedinUser = await userService.login(credentials)
-    console.log('loggedInUser:', loggedinUser)
     store.dispatch({ type: SET_USER, loggedinUser })
 }
 

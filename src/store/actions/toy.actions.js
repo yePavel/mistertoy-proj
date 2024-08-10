@@ -1,5 +1,6 @@
 import { showSuccessMsg } from "../../services/event-bus.service.js";
-import { toyService } from "../../services/toy.service.js";
+import { toyService } from "../../services/toy";
+
 import {
     ADD_TOY,
     REMOVE_TOY,
