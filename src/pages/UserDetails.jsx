@@ -6,7 +6,6 @@ import { ReviewPreview } from "../cmp/ReviewPreview.jsx"
 export function UserDetails() {
     const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
     const reviews = useSelector(storeState => storeState.reviewModule.reviews)
-    console.log("🚀 ~ UserDetails ~ reviews:", reviews)
 
     useEffect(() => {
         loadReviews(loggedinUser._id)

@@ -28,13 +28,12 @@ h1 {
 }
 
 a {
-    color: $clr1;
     text-decoration: none;
 
-    &.active {
-        color: #5034FF;
+    &.active:not(.user-link) {
+        color: black;
         text-decoration: underline;
-        background-color: #F0F3FF;
+        background-color: #FF0800;
         border-radius: 20px;
     }
 }

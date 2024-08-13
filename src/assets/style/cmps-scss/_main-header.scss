@@ -5,6 +5,7 @@ header.app-header {
         display: grid;
         grid-template-columns: 1fr 3fr;
         align-items: end;
+        background: #0a2351;
 
         .app-nav {
             grid-column: 2/-1;
@@ -12,10 +13,13 @@ header.app-header {
             align-items: center;
             justify-content: space-around;
             margin-inline-end: 20px;
+            padding: 10px;
             font-size: rem(20px);
+            color: whitesmoke;
 
             a {
-                padding: rem(20px) rem(20px);
+                color: white;
+                padding: rem(15px) rem(15px);
 
                 &:hover {
                     color: $clr3;
@@ -32,7 +36,7 @@ header.app-header {
                     margin: auto;
                 }
 
-                a:not(.user-img-link) {
+                a:not(.user-link) {
                     padding: 10px;
                     border-radius: 100px;
                     border: solid 2px #6161FF;
@@ -51,8 +55,6 @@ header.app-header {
 
     .toy-logo {
         z-index: 10;
-        width: 15rem;
+        width: 12rem;
     }
-
-
 }
