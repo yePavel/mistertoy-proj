@@ -3,7 +3,6 @@ import { ReviewList } from "../cmp/ReviewList.jsx"
 import { useEffect } from "react"
 import { loadReviews, removeCarOptimistic } from "../store/actions/review.actions.js"
 
-
 export function ReviewIndex() {
     const reviews = useSelector(storeState => storeState.reviewModule.reviews)
 
@@ -12,7 +11,11 @@ export function ReviewIndex() {
     }
 
     useEffect(() => {
-        loadReviews()
+        const filterBy = {
+            byUserId: '',
+            toyId: ''
+        }
+        loadReviews(filterBy)
     }, [])
 
     return <section className="review-index">

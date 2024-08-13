@@ -8,7 +8,7 @@ export const reviewService = {
 }
 
 function query(filterBy) {
-    var queryStr = filterBy ? `${BASE_URL}?byUserId=${filterBy.byUserId}` : ''
+    var queryStr = filterBy ? `${BASE_URL}?byUserId=${filterBy.byUserId}&toyId=${filterBy.toyId}` : ''
     return httpService.get(queryStr)
 }
 

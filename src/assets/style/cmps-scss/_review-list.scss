@@ -1,6 +1,6 @@
 .review-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 400px);
+    grid-template-columns: repeat(auto-fit, 300px);
     list-style-type: none;
     gap: 15px;
 
@@ -11,7 +11,7 @@
         background: linear-gradient($clr2bg-light, $clr1bg-light);
         box-shadow: 0 24px 64px #26214a1a;
         border-radius: 12px;
-        padding: 10px 20px;
+        padding: 5px 10px;
 
         transition: .3s;
 

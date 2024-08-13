@@ -1,7 +1,17 @@
-.user-details-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 500px;
-    margin: 20px auto;
+.main-user-details-container {
+    display: grid;
+
+    .user-details {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 800px;
+        margin: 20px auto;
+    }
+
+    .user-reviews {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
 }
