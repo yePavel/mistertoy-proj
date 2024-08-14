@@ -18,7 +18,7 @@ export function UserLogin() {
         navigate('/')
     }
 
-    return <div>
+    return <div className="user-login-container">
         <h2>Welcome back!</h2>
         <form className="login-form" onSubmit={handleSubmit}>
             <label htmlFor="username">User name: </label>

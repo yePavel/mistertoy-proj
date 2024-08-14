@@ -57,7 +57,7 @@ export function ToyDetails() {
                 </div>
             </div>
             <ChatRoom toyId={toyId} />
-            <div className="toy-reviews-container">
+            <div className="toy-reviews">
                 <h2>Toy Reviews</h2>
                 {reviews.length > 0 ? <ul className="list review-list">
                     {reviews.map(review =>

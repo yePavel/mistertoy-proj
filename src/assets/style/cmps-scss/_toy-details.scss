@@ -1,22 +1,27 @@
 .main-toy-details-container {
     display: grid;
-    grid-template-columns: $layoutPadding 1fr $layoutPadding;
+    grid-template-columns: $layoutPadding 1fr 1fr $layoutPadding;
     margin-top: 30px;
 
     >* {
-        grid-column: 2 / 3;
+        grid-column: 2 / 4;
     }
 
     .toy-details {
         display: flex;
         position: relative;
+        grid-column: 2/3;
         align-items: center;
         flex-direction: column;
-        width: 40vw;
+        width: 30vw;
         border: 1px solid grey;
         border-radius: 10px;
         margin: 20px auto;
         box-shadow: rgba(3, 102, 214, 0.3) -2px 2px 20px 3px;
+
+        h1 {
+            margin: 10px auto;
+        }
 
         .details-price {
             color: grey;
@@ -41,9 +46,76 @@
         }
     }
 
+    .toy-chat {
+        grid-row: 1/2;
+        grid-column: 3/4;
+        display: flex;
+        flex-direction: column;
+
+        form {
+            display: flex;
+            padding: .3rem;
+            height: 2.5rem;
+            background: rgba(0, 0, 0, 0.15);
+            width: 600px;
+
+            input {
+                border: none;
+                padding: 0 1rem;
+                flex-grow: 1;
+                border-radius: 2rem;
+                margin: 0.25rem;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            button {
+                border: none;
+                padding: 0 1rem;
+                border-radius: 2rem;
+                margin: 0.25rem;
+
+                &:hover {
+                    background-color: grey;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow-y: scroll;
+            width: 600px;
+            height: 250px;
+            white-space: nowrap;
+
+            li {
+                padding: .1rem .5rem;
+
+                &:nth-child(odd) {
+                    background-color: rgba(219, 219, 219, 0.205);
+                }
+
+            }
+        }
+
+        h2 {
+            margin: 0 auto;
+        }
+    }
+
     .toy-reviews {
         display: flex;
         flex-direction: column;
+        margin-block-start: 20px;
         padding: 10px;
+
+        h2 {
+            margin: auto;
+        }
     }
 }
