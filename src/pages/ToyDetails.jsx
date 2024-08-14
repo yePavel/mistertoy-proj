@@ -4,6 +4,7 @@ import { toyService } from "../services/toy"
 import { useSelector } from "react-redux";
 import { loadReviews } from "../store/actions/review.actions.js";
 import { ReviewPreview } from "../cmp/ReviewPreview.jsx";
+import { ChatRoom } from "../cmp/ChatRoom.jsx";
 
 export function ToyDetails() {
     const reviews = useSelector(storeState => storeState.reviewModule.reviews)
@@ -34,8 +35,8 @@ export function ToyDetails() {
     if (!toy) return <div>Loading...</div>
 
     return (
-        <>
-            <section className="toy-details">
+        <section className="main-toy-details-container">
+            <div className="toy-details">
                 <h1>{toy.name}</h1>
                 <img className="toy-img" src={`./src/assets/imgs/${toy.name}.png`} alt="" />
                 <h3 className="details-price">Price: ${toy.price}</h3>
@@ -54,17 +55,18 @@ export function ToyDetails() {
                     >Back
                     </Link>
                 </div>
-            </section>
+            </div>
+            <ChatRoom toyId={toyId} />
             <div className="toy-reviews-container">
                 <h2>Toy Reviews</h2>
-                <ul className="list review-list">
+                {reviews.length > 0 ? <ul className="list review-list">
                     {reviews.map(review =>
                         <li key={review._id}>
                             <ReviewPreview review={review} />
                         </li>)
                     }
-                </ul>
+                </ul> : <div className="toy-reviews">No Reviews</div>}
             </div>
-        </>
+        </section>
     )
 }

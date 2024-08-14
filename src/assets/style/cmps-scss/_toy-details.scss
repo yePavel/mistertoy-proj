@@ -1,40 +1,49 @@
-.toy-details {
-    display: flex;
-    position: relative;
-    align-items: center;
-    flex-direction: column;
-    width: 40vw;
-    border: 1px solid grey;
-    border-radius: 10px;
-    margin: 20px auto;
-    box-shadow: rgba(3, 102, 214, 0.3) -2px 2px 20px 3px;
+.main-toy-details-container {
+    display: grid;
+    grid-template-columns: $layoutPadding 1fr $layoutPadding;
+    margin-top: 30px;
 
-    .details-price {
-        color: grey;
+    >* {
+        grid-column: 2 / 3;
     }
 
-    a.edit-details-btn {
-        border-bottom: 1px dashed transparent;
+    .toy-details {
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-direction: column;
+        width: 40vw;
+        border: 1px solid grey;
+        border-radius: 10px;
+        margin: 20px auto;
+        box-shadow: rgba(3, 102, 214, 0.3) -2px 2px 20px 3px;
 
-        &:hover {
-            color: $clr3;
-            border-bottom: 1px dashed;
+        .details-price {
+            color: grey;
+        }
+
+        a.edit-details-btn {
+            border-bottom: 1px dashed transparent;
+
+            &:hover {
+                color: $clr3;
+                border-bottom: 1px dashed;
+            }
+        }
+
+        a.edit-back-btn {
+            border-bottom: 1px dashed transparent;
+
+            &:hover {
+                color: $clr3;
+                border-bottom: 1px dashed;
+            }
         }
     }
 
-    a.edit-back-btn {
-        border-bottom: 1px dashed transparent;
-
-        &:hover {
-            color: $clr3;
-            border-bottom: 1px dashed;
-        }
+    .toy-reviews {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
     }
-
-}
-
-.toy-reviews-container {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
 }

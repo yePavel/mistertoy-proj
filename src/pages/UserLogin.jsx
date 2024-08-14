@@ -12,10 +12,10 @@ export function UserLogin() {
         setCredentials(prevCredentials => ({ ...prevCredentials, [field]: value }))
     }
 
-    function handleSubmit(ev) {
-        ev.preventDefault()
-        login(credentials)
-            .then(navigate('/'))
+    async function handleSubmit(ev = null) {
+        if (ev) ev.preventDefault()
+        await login(credentials)
+        navigate('/')
     }
 
     return <div>
